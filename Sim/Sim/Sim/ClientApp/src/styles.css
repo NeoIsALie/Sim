@@ -1,0 +1,78 @@
+:root {
+    --stars: #3D689C;
+    --starsHover: #477ab9;
+    --buttons: #6699cc;
+    --h: #3D689C;
+    --componentBg: white;
+    --text: white;
+}
+
+h1 {
+  color: var(--h);
+  font-size: 250%;
+}
+
+h2, h3, h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: var(--h);
+  font-weight: lighter;
+}
+
+h5 {
+  font-size: 200%;
+  color: var(--text);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+
+input[type="text"], button {
+  color: #333;
+}
+
+#stars { 
+    background: var(--stars);
+    width: 100%;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+#stars:hover { 
+    background: var(--starsHover);
+}
+
+@media (max-width: 1200px), (max-height: 600px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 800px), (max-height: 400px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-height: 330px) {
+    html {
+        font-size: 8px;
+    }
+}

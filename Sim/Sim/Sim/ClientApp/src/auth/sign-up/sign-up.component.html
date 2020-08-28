@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>Создайте новый аккаунт</h2>
+    <input class="form-control" placeholder="Введите email" [(ngModel)]="email" name="email">
+    <input class="form-control" placeholder="Введите имя" [(ngModel)]="username" name="username">
+    <input type="password" class="form-control" placeholder="Введите пароль" [(ngModel)]="password" name="password">
+    <button type="submit" (click)="signup()" class="btn btn-primary">Зарегистрироваться</button>
+    <a routerLink="/auth/signin">У вас уже есть аккаунт ?</a>
+</div>

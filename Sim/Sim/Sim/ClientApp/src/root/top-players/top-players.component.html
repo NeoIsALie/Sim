@@ -1,0 +1,12 @@
+<h3>Лучшие игроки</h3>
+<ul class="topPlayers">
+    <li class="list-group-item" *ngFor="let topPlayer of topPlayers">
+        <div class="d-flex justify-content-between">
+            <div class="p-2">{{topPlayer.name}}</div>
+            <div class="p-2"> 
+                <span class="badge badge-success badge-pill">{{topPlayer.wins}}</span>
+                <span class="badge badge-danger badge-pill">{{topPlayer.defeats}}</span> 
+            </div>
+        </div>
+    </li>
+</ul>

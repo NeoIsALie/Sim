@@ -1,0 +1,58 @@
+app-header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: var(--componentBg);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+div.container {
+    position: absolute;
+    width: 66vw;
+    height: 82vh;
+    left: 3vw;
+    top: 12vh;
+    background-color: rgba(211,211,211,0.8);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+button.startBtn {
+    position: relative;
+    width: 25vw;
+    height: 15vh;
+    left: 20.5vw;
+    top: 33.5vh;
+    border-radius: 0;
+}
+
+app-game-board {
+    position: absolute;
+    width: 66vw;
+    height: 82vh;
+    left: 3vw;
+    top: 12vh;
+    background-color: var(--componentBg);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+button.leaveBtn {
+    position: absolute;
+    right: 3vw;
+    top: 12vh;
+    width: 25vw;
+    height: 15vh;
+    color: var(--text);
+    background-color: var(--buttons);
+    border-radius: 0;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+app-players {
+    position: absolute;
+    width: 25vw;
+    height: 62vh;
+    right: 3vw;
+    top: 32vh;
+    background-color: var(--componentBg);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

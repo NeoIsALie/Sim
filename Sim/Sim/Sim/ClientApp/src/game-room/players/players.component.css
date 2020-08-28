@@ -1,0 +1,23 @@
+.players {
+    position: relative;
+    height: 55vh;
+    overflow-y: auto;
+}
+
+.badge {
+    padding: 0.6em;
+    border-radius: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li.list-group-item {
+    border-radius: 0;
+}
+
+.fa-crown {
+    color: gold;
+}

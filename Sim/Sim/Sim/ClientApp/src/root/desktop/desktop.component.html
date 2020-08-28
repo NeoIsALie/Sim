@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <app-header></app-header>
+
+    <canvas id="stars" #stars></canvas>
+
+    <app-rooms-list></app-rooms-list>
+
+    <button type="button" class="btn createBtn" data-toggle="modal" data-target="#config">
+        <h5>Создать комнату</h5>
+    </button>
+
+    <div class="modal" id="config">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Параметры комнаты</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addOnRoomName">Название</span>
+                        </div>
+                        <input class="form-control" [(ngModel)]="roomName" id="roomName" aria-describedby="addOnRoomName">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="playersCountSelect">Конфигурация</label>
+                        </div>
+                        <select class="custom-select" (change)="selectConfiguration($event)" id="configurationSelect">
+                          <option *ngFor="let config of configurationsList; let i = index" value="{{config.id}}">{{config.name}}</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="playersCountSelect">Количество игроков</label>
+                        </div>
+                        <select class="custom-select" (change)="selectCount($event)" id="playersCountSelect">
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelModal()">Закрыть</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="createRoom()">Создать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-top-players></app-top-players>
+</body>
+
+</html>

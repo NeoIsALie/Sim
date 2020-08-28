@@ -1,0 +1,27 @@
+<h3>Список комнат</h3>
+<input [(ngModel)]="searchText" placeholder="Поиск.." class="form-control">
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th class="th-sm"><a (click)="sort('name')">Имя <i class="fa fa-sort"></i></a></th>
+      <th class="th-sm"><a (click)="sort('configId')">Конфигурация <i class="fa fa-sort"></i></a></th>
+      <th class="th-sm"><a (click)="sort('playersCount')">Количество мест <i class="fa fa-sort"></i></a></th>
+      <th class="th-sm"><a (click)="sort('status')">Статус <i class="fa fa-sort"></i></a></th>
+      <th class="th-sm">Вход</th>
+      <th id="scrollHeader"></th>
+    </tr>
+  </thead>
+  <tbody #myTable>
+    <tr *ngFor="let room of roomsList | grdFilter: {name: searchText} | orderBy: key : reverse">
+      <td>{{room.name}}</td>
+      <td>{{getConfigurationName(room.configId)}}</td>
+      <td>{{room.playersCount}} / {{room.maxPlayersCount}}</td>
+      <td>{{room.status | statusEditer}}</td>
+      <td>
+        <div *ngIf="room.playersCount != room.maxPlayersCount && !room.status">
+          <button type="button" class="btn" (click)="selectRoom(room.id)">Войти</button>
+        </div>
+      </td>
+    </tr>    
+  </tbody>
+</table>

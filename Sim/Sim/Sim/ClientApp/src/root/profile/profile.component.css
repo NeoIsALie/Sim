@@ -1,0 +1,32 @@
+.fas {
+    color: var(--buttons);
+}
+
+.fas:hover {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.badge {
+    padding: 0.6em;
+    border-radius: 0;
+}
+
+button.signOutBtn {
+    color: var(--text);
+    background-color: var(--buttons); 
+}
+
+.modal {
+    position: fixed;
+    top: 25vh;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+button.btn {
+    width: 7em;
+    border-radius: 0;
+}

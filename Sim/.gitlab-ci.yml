@@ -1,0 +1,129 @@
+stages:
+    - build
+    - test
+    - dockerize
+
+before_script:
+    - cd Sim
+
+build-backend:
+    stage: build
+    image: microsoft/dotnet:latest
+    stage: build
+    script:
+        - dotnet build -c Release
+    only:
+        refs:
+            - merge_requests
+        variables:
+            - $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+        
+    artifacts:
+        paths:
+            - "Sim/Sim/bin/Release/netcoreapp2.2/"
+        when: on_success
+        expire_in: 1d
+
+build-frontend:
+    stage: build
+    image: node:latest
+    stage: build
+    script:
+        - cd Sim/ClientApp
+        - npm install -g @angular/cli
+        - npm install
+        - ng build --prod
+    only:
+        refs:
+            - merge_requests
+        variables:
+            - $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    cache:
+        key: ${CI_COMMIT_REF_NAME}
+        paths:
+            - Sim/Sim/ClientApp/node_modules/
+    artifacts:
+        paths:
+            - Sim/Sim/ClientApp/
+        when: on_success
+        expire_in: 1d
+        
+build-backend-dev:
+    stage: build
+    image: microsoft/dotnet:latest
+    script:
+        - dotnet build -c Release
+    except:
+        refs:
+            - merge_requests
+            - develop
+        changes:
+            - Sim/Sim/ClientApp/**/*
+    only:
+        changes:
+            - Sim/**/*
+        
+build-frontend-dev:
+    stage: build
+    image: node:latest
+    script:
+        - cd Sim/ClientApp
+        - npm install -g @angular/cli
+        - npm install
+        - ng build --prod
+    except:
+        - merge_requests
+        - develop
+    only:
+        changes:
+            - Sim/Sim/ClientApp/**/*
+    cache:
+        key: ${CI_COMMIT_REF_NAME}
+        paths:
+            - Sim/Sim/ClientApp/node_modules/
+
+test-frontend:
+    stage: test
+    image: markadams/chromium-xvfb:latest
+    script:
+        - curl -sL https://deb.nodesource.com/setup_13.x | bash -
+        - apt-get install -y nodejs
+        - npm install -g @angular/cli
+        - cd Sim/ClientApp
+        - ng test --watch=false --browsers=ChromeHeadless
+    only:
+        refs:
+            - merge_requests
+        variables:
+            - $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    dependencies:
+        - build-frontend
+        
+test-backend:
+    stage: test
+    image: microsoft/dotnet:latest
+    script:
+        - echo "Test backend"
+    only:
+        refs:
+            - merge_requests
+        variables:
+            - $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    dependencies:
+        - build-backend
+
+dockerize:
+    image: microsoft/dotnet:latest
+    stage: dockerize
+    script:
+        - docker build -t simserver -f Dockerfile
+    only:
+        refs:
+            - develop
+            - merge_requests
+        variables:
+            - $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    when: manual
+    dependencies:
+        - build-backend
+        - build-frontend

@@ -1,0 +1,23 @@
+img.rounded-circle {
+    width: 1em;
+    height: 1em;
+}
+
+.modal {
+    position: fixed;
+    top: 25vh;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+app-profile {
+    position: relative;
+    width: 12em;
+    height: 3em;
+}
+
+button {
+    border-radius: 0;
+}

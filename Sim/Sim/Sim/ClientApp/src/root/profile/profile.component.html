@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-around align-items-center">
+    <h4>{{user.name}}</h4>
+    <div class="p-2">
+        <span class="badge badge-success badge-pill">{{user.wins}}</span>  
+        <span class="badge badge-danger badge-pill">{{user.defeats}}</span>
+    </div>
+    <i class="fas fa-sign-out-alt" aria-hidden="true" data-toggle="modal" data-target="#sign-out"> </i>
+</div>
+
+
+<div class="modal" id="sign-out">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">Вы уверены, что хотите выйти из профиля ?</div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+                <button type="button" class="btn signOutBtn" data-dismiss="modal" (click)="signout()">Выйти</button>
+            </div>
+        </div>
+    </div>
+</div>

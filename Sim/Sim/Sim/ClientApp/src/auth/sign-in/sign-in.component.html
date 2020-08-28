@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Добро пожаловать в игру Сим</h2>
+    <input class="form-control" placeholder="Введите имя" [(ngModel)]="username" name="username">
+    <input type="password" class="form-control" placeholder="Введите пароль" [(ngModel)]="password" name="password">
+    <button type="submit" class="btn btn-primary" (click)="login()">Войти</button>
+    <a routerLink="/auth/signup">У вас нет аккаунта ?</a> 
+</div>

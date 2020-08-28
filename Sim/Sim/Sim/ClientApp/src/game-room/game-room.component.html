@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <app-header></app-header>
+    
+    <canvas id="stars" #stars></canvas>
+
+    <app-game-board [roomId]="roomId" [playerId]="playerId" [currentPlayerId]="currentPlayerId" [gameConfiguration]="gameConfiguration"></app-game-board>
+
+    <div class="container" *ngIf="!isStartGame && leaderId === playerId">
+        <button type="button" class="btn startBtn btn-success" (click)="startGame(true)">
+            <h5>Начать</h5>
+        </button> 
+    </div>
+
+    <button type="button" class="btn leaveBtn" (click)="leaveRoom()">
+        <h5>Покинуть комнату</h5>
+    </button>
+
+    <app-players [leaderId]="leaderId" [playersList]="playersList"></app-players>
+    <notifier-container></notifier-container>
+</body>
+
+</html>

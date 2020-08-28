@@ -1,0 +1,19 @@
+<h3>Игроки</h3>
+<div class="players">
+    <ul *ngFor="let player of playersList; let i = index">
+        <li class="list-group-item" *ngStyle="player.id === currentPlayer && {
+                                             'background-color': player.color,
+                                             'color': 'white'}">
+            <div class="d-flex justify-content-between">
+                <div class="p-2">
+                    {{player.name}}
+                    <i class="fas fa-crown" *ngIf="player.id === leaderId"></i>
+                </div>
+                <div class="p-2">
+                    <span class="badge badge-success badge-pill">{{player.wins}}</span>
+                    <span class="badge badge-danger badge-pill">{{player.defeats}}</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

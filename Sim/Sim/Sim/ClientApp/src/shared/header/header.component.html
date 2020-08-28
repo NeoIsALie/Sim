@@ -1,0 +1,53 @@
+<div class="d-flex align-items-center justify-content-sm-around">
+    <h4><img src="assets/img/logo.jpg" class="rounded-circle" alt="Sim"> Sim</h4>
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#rules" style="color: #3D689C">Правила игры Сим</button>
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#aboutUs" style="color: #3D689C">О нас</button>
+    "Люблю курс по Web-разработке!" &copy; Джейсон Стетхем
+    <app-profile></app-profile>
+</div>
+
+<div class="modal" id="rules">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Правила игры Сим</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Игра Сим проходит на поле, на котором отмечены точки согласно некоторой конфигурации</li>
+                    <li>Игроки поочередно соединяют точки отрезками. Каждый игрок для этого использует свой цвет</li>
+                    <li>Проигрывает тот игрок, после хода которого образуется на вершинах треугольник его цвета</li>
+                    <li>Запрещается соединять две вершины прямым отрезком дважды</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="aboutUs">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Разработчики игры Сим</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p align="justify">
+                    Игра Сим была разработана в рамках проекта по дисциплине "Основы разработки Web-приложений" студентами группы ИУ7-71.
+                </p>
+                <ul>
+                    <li>Шоркин Никита - <strong>teamlead</strong></li>
+                    <li>Покасова Анастасия</li>
+                    <li>Капсомун Дмитрий</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
